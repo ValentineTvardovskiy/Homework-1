@@ -6,9 +6,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
+        System.out.println("Enter size, k and elements");
+        rotation();
 
-        //------------------------№1---------------------------------//
+        System.out.println("Enter size and elements");
+        reverse();
+
+        System.out.println("Enter size and elements");
+        ranges();
+
+    }
+
+    public static void rotation() {
+        Scanner input = new Scanner(System.in);
 
         int size = input.nextInt();
         int k = input.nextInt();
@@ -20,10 +30,8 @@ public class Main {
 
         for (int i = 0; i < k; i++) {
             int temp = array[0];
-            for (int j = 0; j < array.length - 1; j++) {
-                array[j] = array[j+1];
-            }
-            array[array.length-1] = temp;
+            System.arraycopy(array, 1, array, 0, size - 1);
+            array[size - 1] = temp;
         }
 
         System.out.println();
@@ -31,7 +39,10 @@ public class Main {
             System.out.print(array[i] + " ");
         }
 
-        //------------------------№2---------------------------------//
+    }
+
+    public static void reverse() {
+        Scanner input = new Scanner(System.in);
 
         int size2 = input.nextInt();
         int[] array2 = new int[size2];
@@ -42,10 +53,10 @@ public class Main {
 
         for (int i = 0; i < size2; i++) {
             if (array2[i] < 0) {
-                if ( (array2[i-1] + 1) == (array2[i+1] - 1) )
-                    array2[i] = array2[i-1] + 1;
+                if ((array2[i - 1] + 1) == (array2[i + 1] - 1))
+                    array2[i] = array2[i - 1] + 1;
                 else
-                    array2[i] = array2[i-1] - 1;
+                    array2[i] = array2[i - 1] - 1;
             }
         }
 
@@ -53,8 +64,10 @@ public class Main {
         for (int i = 0; i < size2; i++) {
             System.out.print(array2[i] + " ");
         }
+    }
 
-        //------------------------№3---------------------------------//
+    public static void ranges() {
+        Scanner input = new Scanner(System.in);
 
         int size3 = input.nextInt();
         int[] array3 = new int[size3];
@@ -63,20 +76,26 @@ public class Main {
             array3[i] = input.nextInt();
         }
 
+        int min = array3[0];
         for (int i = 0; i < size3; i++) {
-            int min = array3[i];
-            System.out.print("[" + min);
+            if ((i == size3 - 1) || (array3[i] + 1 != array3[i+1])) {
 
-            for (int j = i; j < size3; j++) {
-                if ((j == size3-1) || (array3[j] + 1 != array3[j+1])) {
-                    int max = array3[j];
-                    if (min != max) System.out.print(" " + max);
-                    i = j;
+                int max = array3[i];
+                if (min != max) {
+                    System.out.print("[" + min + " " + max + "]");
+                }
+                else {
+                    System.out.print("[" + min + "]");
+                }
+
+                if (i == size3 - 1) {
                     break;
                 }
+                min = array3[i+1];
             }
-            System.out.print("]");
         }
 
     }
 }
+
+
