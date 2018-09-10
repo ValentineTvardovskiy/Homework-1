@@ -36,7 +36,7 @@ public class Main {
         for (int i = 0; i < size - k; i++) {
             newArray[i] = array[k + i];
         }
-        //по частям передать
+        
 
         System.out.println();
         for (int i = 0; i < size; i++) {
