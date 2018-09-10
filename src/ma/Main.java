@@ -9,11 +9,11 @@ public class Main {
         System.out.println("Enter size, k and elements");
         rotation();
 
-        System.out.println("Enter size and elements");
-        reverse();
+        //System.out.println("Enter size and elements");
+        //reverse();
 
-        System.out.println("Enter size and elements");
-        ranges();
+        //System.out.println("Enter size and elements");
+        //ranges();
 
     }
 
@@ -28,15 +28,19 @@ public class Main {
             array[i] = input.nextInt();
         }
 
+        int[] newArray = new  int[size];
+
         for (int i = 0; i < k; i++) {
-            int temp = array[0];
-            System.arraycopy(array, 1, array, 0, size - 1);
-            array[size - 1] = temp;
+            newArray[size - k + i] = array[i];
         }
+        for (int i = 0; i < size - k; i++) {
+            newArray[i] = array[k + i];
+        }
+        //по частям передать
 
         System.out.println();
         for (int i = 0; i < size; i++) {
-            System.out.print(array[i] + " ");
+            System.out.print(newArray[i] + " ");
         }
 
     }
