@@ -9,11 +9,11 @@ public class Main {
         System.out.println("Enter size, k and elements");
         rotation();
 
-        //System.out.println("Enter size and elements");
-        //reverse();
+        System.out.println("Enter size and elements");
+        reverse();
 
-        //System.out.println("Enter size and elements");
-        //ranges();
+        System.out.println("Enter size and elements");
+        ranges();
 
     }
 
